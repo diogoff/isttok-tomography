@@ -8,4 +8,4 @@ The code is based on the 3-camera setup described in the [PhD thesis](http://bib
 
 For a different setup, feel free to adapt this code according to the license terms.
 
-# ISTTOK Tokamak Engineering and Operation
+## Instructions
