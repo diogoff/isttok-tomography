@@ -18,6 +18,6 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The vessel has a circular cross section that is assumed to be centered at (0,0) in the xy-plane.
     
-    - An output file `cameras.csv` will be created with the start and end positions for each line of sight inside the vessel.
+    - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
     
     - The script will also read the output file and plot the lines of sight.
