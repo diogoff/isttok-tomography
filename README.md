@@ -22,12 +22,12 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The script will also read the output file and plot the lines of sight.
 
-- Run `projmat.py` to find the projection matrix.
+- Run `projmat.py` to find the projection matrix from pixel values to detector measurements.
 
-    - The x- and y-axis pixel resolution is defined in the code.
+    - The pixel resolution for the x- and y-axis are defined in the code.
     
-    - The script will plot how each pixel contributes to the measurement of each detector.
+    - The script will plot the contribution of every pixel to each camera/detector measurement.
     
+    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length of the intersection between the line and the pixel. For pixels that are not crossed by the line of sight, their contribution is zero, since there is no intersection.
+
     - The projection matrix will be saved to the output file `projmat.npy`.
-
-
