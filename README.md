@@ -14,4 +14,8 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The three cameras are referred to as top (t), front (f) and bottom (b).
 
-    - The pinhole and detector positions are provided in the code.
+    - The pinhole and detector positions are provided in the code. 
+    
+    - An output file (`cameras.csv`) will be created with the start and ending positions for each line of sight.
+    
+    
