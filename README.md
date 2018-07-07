@@ -22,6 +22,8 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The script will also read the output file and plot the lines of sight.
 
+![Lines of sight](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
+
 - Run `projmat.py` to find the projection matrix from pixel values to detector measurements.
 
     - The pixel resolution for the x- and y-axis are defined in the code.
