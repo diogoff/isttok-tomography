@@ -28,6 +28,6 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The script will plot the contribution of every pixel to each camera/detector measurement.
     
-    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length of the intersection between the line and the pixel. For pixels that are not crossed by the line of sight, their contribution is zero, since there is no intersection.
+    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length that the line travels within the pixel. For pixels that are not crossed by the line of sight, their contribution is zero.
 
     - The projection matrix will be saved to the output file `projmat.npy`.
