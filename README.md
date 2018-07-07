@@ -1,2 +1,1 @@
-# isttok-tomography
-Source code for the ISTTOK training program on _Tokamak Engineering and Operation_
+# Source code for the ISTTOK training program on _Tokamak Engineering and Operation_
