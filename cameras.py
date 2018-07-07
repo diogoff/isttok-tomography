@@ -124,9 +124,9 @@ print(df)
 # -----------------------------------------------------------------------------------------
 
 for (i, row) in enumerate(df.itertuples()):
-    if i < 8:
+    if i < n:
         color = 'darkturquoise'
-    elif i < 16:
+    elif i < 2*n:
         color = 'limegreen'
     else:
         color = 'orange'
@@ -142,6 +142,6 @@ plt.gca().set_aspect('equal')
 plt.xlabel('x (mm)')
 plt.ylabel('y (mm)')
 
-plt.title('lines of sight')
+plt.title('cameras')
 
 plt.show()
