@@ -16,7 +16,7 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The pinhole and detector positions are provided in the code.
     
-    - The vessel has a circular cross section that is assumed to be centered at (0,0) in an xy-plane.
+    - The vessel has a circular cross section that is assumed to be centered at (0,0) in the xy-plane.
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight inside the vessel.
     
