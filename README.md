@@ -16,6 +16,6 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The pinhole and detector positions are provided in the code. 
     
-    - An output file (`cameras.csv`) will be created with the start and end positions for each line of sight inside the vessel.
+    - An output file `cameras.csv` will be created with the start and end positions for each line of sight inside the vessel.
     
     
