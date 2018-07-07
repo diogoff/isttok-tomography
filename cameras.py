@@ -27,10 +27,10 @@ print('b_pinhole_y:', b_pinhole_y)
 
 # -----------------------------------------------------------------------------------------
 
-n = 8
-pixel = 1.5
-space = 10./18.
-dist = 10.
+n = 8           # number of pixels
+pixel = 1.5     # pixel size
+space = 10./18. # space between pixels
+dist = 10.      # distance to pinhole
 
 t_detector_x = t_pinhole_x - (n*pixel + (n-1)*space)/2. + pixel/2. + np.arange(n)*(pixel + space)
 t_detector_y = (t_pinhole_y + dist) * np.ones(n)
