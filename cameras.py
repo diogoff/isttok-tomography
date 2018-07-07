@@ -115,14 +115,6 @@ df.to_csv(fname, index=False)
 
 # -----------------------------------------------------------------------------------------
 
-fname = 'cameras.csv'
-print('Reading:', fname)
-df = pd.read_csv(fname)
-
-print(df)
-
-# -----------------------------------------------------------------------------------------
-
 for (i, row) in enumerate(df.itertuples()):
     if i < n:
         color = 'darkturquoise'
