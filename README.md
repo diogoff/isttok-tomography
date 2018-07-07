@@ -10,4 +10,4 @@ For a different setup, feel free to adapt this code according to the license ter
 
 ## Instructions
 
-* Run `cameras.py` to find the lines of sight for each camera, based on the pinhole and detector positions provided in the code.
+- Run `cameras.py` to find the lines of sight for each camera, based on the pinhole and detector positions provided in the code.
