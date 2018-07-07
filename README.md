@@ -6,6 +6,6 @@ The code is based on the 3-camera setup described in the [PhD thesis](http://bib
 
 ![Cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
 
-For a different setup, feel free to adapt this code while crediting its source.
+For a different setup, feel free to adapt this code according to the license terms.
 
 # ISTTOK Tokamak Engineering and Operation
