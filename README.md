@@ -9,3 +9,5 @@ The code is based on the 3-camera setup described in the [PhD thesis](http://bib
 For a different setup, feel free to adapt this code according to the license terms.
 
 ## Instructions
+
+* Run `cameras.py` to find the lines of sight for each camera, based on the pinhole and detector positions provided in the code.
