@@ -20,4 +20,4 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
     
-    - For testing, the script will read the output file and plot the lines of sight.
+    - The script will also read the output file and plot the lines of sight.
