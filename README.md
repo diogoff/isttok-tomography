@@ -32,6 +32,6 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The projections will be saved to the output file `projections.npy`.
 
-![projmat-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-top.png)
-![projmat-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-front.png)
-![projmat-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-bottom.png)
+![projections-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-top.png)
+![projections-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-front.png)
+![projections-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-bottom.png)
