@@ -44,22 +44,30 @@ for y in y_grid:
 
 grid = MultiLineString(grid)
 
-masks = []
+# -------------------------------------------------------------------------
+
+projections = []
 
 for row in df.itertuples():
     line = LineString([(row.x0, row.y0), (row.x1, row.y1)])
-    mask = np.zeros((n_rows, n_cols))
+    projection = np.zeros((n_rows, n_cols))
     for segment in line.difference(grid):
         xx, yy = segment.xy
         x_mean = np.mean(xx)
         y_mean = np.mean(yy)
         (i, j) = transform(x_mean, y_mean)
-        mask[i,j] = segment.length
-    masks.append(mask)
+        projection[i,j] = segment.length
+    projections.append(projection)
     
-masks = np.array(masks)
+projections = np.array(projections)
 
-print('masks:', masks.shape, masks.dtype)
+print('projections:', projections.shape, projections.dtype)
+
+# -------------------------------------------------------------------------
+
+fname = 'projections.npy'
+print('Writing:', fname)
+np.save(fname, projections)
 
 # -------------------------------------------------------------------------
 
@@ -74,38 +82,28 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(masks[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_axis_off()
 
-fig.suptitle('projection matrix (top camera)')
+fig.suptitle('projections (top camera)')
 plt.show()
 
 fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + ni*nj
-        ax[i,j].imshow(masks[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_axis_off()
 
-fig.suptitle('projection matrix (front camera)')
+fig.suptitle('projections (front camera)')
 plt.show()
 
 fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + 2*ni*nj
-        ax[i,j].imshow(masks[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_axis_off()
 
-fig.suptitle('projection matrix (bottom camera)')
+fig.suptitle('projections (bottom camera)')
 plt.show()
-
-# -------------------------------------------------------------------------
-
-projmat = masks.reshape((masks.shape[0], masks.shape[1]*masks.shape[2]))
-
-print('projmat:', projmat.shape, projmat.dtype)
-
-fname = 'projmat.npy'
-print('Writing:', fname)
-np.save(fname, projmat)
