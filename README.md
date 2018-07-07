@@ -21,3 +21,13 @@ For a different setup, feel free to adapt this code according to the license ter
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
     
     - The script will also read the output file and plot the lines of sight.
+
+- Run `projmat.py` to find the projection matrix.
+
+    - The x- and y-axis pixel resolution is defined in the code.
+    
+    - The script will plot how each pixel contributes to the measurement of each detector.
+    
+    - The projection matrix will be saved to the output file `projmat.npy`.
+
+
