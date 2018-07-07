@@ -27,18 +27,18 @@ print('b_pinhole_y:', b_pinhole_y)
 
 # -----------------------------------------------------------------------------------------
 
-n = 8           # number of pixels
-pixel = 1.5     # pixel size
-space = 10./18. # space between pixels
-dist = 10.      # distance to pinhole
+n = 8           # number of detectors per camera
+size = 1.5      # detector size
+space = 10./18. # space between detectors
+dist = 10.      # distance from camera to pinhole
 
-t_detector_x = t_pinhole_x - (n*pixel + (n-1)*space)/2. + pixel/2. + np.arange(n)*(pixel + space)
+t_detector_x = t_pinhole_x - (n*size + (n-1)*space)/2. + size/2. + np.arange(n)*(size + space)
 t_detector_y = (t_pinhole_y + dist) * np.ones(n)
 
 f_detector_x = (f_pinhole_x + dist) * np.ones(n)
-f_detector_y = f_pinhole_y + (n*pixel + (n-1)*space)/2. - pixel/2. - np.arange(n)*(pixel + space)
+f_detector_y = f_pinhole_y + (n*size + (n-1)*space)/2. - size/2. - np.arange(n)*(size + space)
 
-b_detector_x = b_pinhole_x + (n*pixel + (n-1)*space)/2. - pixel/2. - np.arange(n)*(pixel + space)
+b_detector_x = b_pinhole_x + (n*size + (n-1)*space)/2. - size/2. - np.arange(n)*(size + space)
 b_detector_y = (b_pinhole_y - dist) * np.ones(n)
 
 print('t_detector_x:', t_detector_x)
