@@ -20,19 +20,17 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
     
-    - The script will also read the output file and plot the lines of sight.
-
 ![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
 
-- Run `projmat.py` to find the projection matrix from pixel values to detector measurements.
+- Run `projections.py` to find the projections from pixel values to detector measurements.
 
     - The pixel resolution for the x- and y-axis are defined in the code.
     
-    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length that the line travels within the pixel. For pixels that are not crossed by a line of sight, their contribution is zero.
+    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length of the intersection between the line and the pixel.
+    
+    - When a line of sight does not cross a pixel, the contribution of that pixel is zero, since there is no intersection.
 
-    - The projection matrix will be saved to the output file `projmat.npy`.
-
-    - The script will plot the contribution of every pixel to each camera/detector measurement.
+    - The projections will be saved to the output file `projections.npy`.
 
 ![projmat-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-top.png)
 ![projmat-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-front.png)
