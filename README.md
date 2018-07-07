@@ -4,7 +4,7 @@ This repository contains the source code for the tomography course at the ISTTOK
 
 The code is based on the 3-camera setup described in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho.
 
-![Cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
+![fig3.2](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
 
 For a different setup, feel free to adapt this code according to the license terms.
 
@@ -22,14 +22,18 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The script will also read the output file and plot the lines of sight.
 
-![Lines of sight](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
+![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
 
 - Run `projmat.py` to find the projection matrix from pixel values to detector measurements.
 
     - The pixel resolution for the x- and y-axis are defined in the code.
     
-    - The script will plot the contribution of every pixel to each camera/detector measurement.
-    
-    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length that the line travels within the pixel. For pixels that are not crossed by the line of sight, their contribution is zero.
+    - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length that the line travels within the pixel. For pixels that are not crossed by a line of sight, their contribution is zero.
 
     - The projection matrix will be saved to the output file `projmat.npy`.
+
+    - The script will plot the contribution of every pixel to each camera/detector measurement.
+
+![projmat-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-top.png)
+![projmat-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-front.png)
+![projmat-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projmat-bottom.png)
