@@ -8,7 +8,7 @@ The code is based on the 3-camera setup described in the [PhD thesis](http://bib
 
 For a different setup, feel free to adapt this code according to the license terms.
 
-## Cameras
+### Cameras
 
 - Run `cameras.py` to find the lines of sight for each camera.
 
@@ -22,7 +22,7 @@ For a different setup, feel free to adapt this code according to the license ter
     
 ![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
 
-## Projections
+### Projections
 
 - Run `projections.py` to find the projections from pixel values to detector measurements.
 
@@ -38,7 +38,7 @@ For a different setup, feel free to adapt this code according to the license ter
 ![projections-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-front.png)
 ![projections-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-bottom.png)
 
-## Signals
+### Signals
 
 - Run `signals.py` to get the signals from each camera, for a given shot number.
 
@@ -50,9 +50,9 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The signal offset is removed based on the signal average for _t_ < 0 s.
     
-    - The signals are subsampled from 2 MHz to 10 kHz.
+    - The signals are subsampled from 2 MHz to 10 kHz and clipped to zero to remove any negative values.
     
-    - The signals data and time are stored separately in `signals_data.npy` and `signals_time.npy`.
+    - The data and time are stored separately in `signals_data.npy` and `signals_time.npy`.
     
 ![signals-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-top.png)
 ![signals-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-front.png)
