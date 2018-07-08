@@ -4,18 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # -------------------------------------------------------------------------
-# http://metis.ipfn.ist.utl.pt/CODAC/IPFN_Software/SDAS/Codes/Python
 
 from sdas.core.client.SDASClient import SDASClient
 from sdas.core.SDAStime import TimeStamp
 
-def StartSdas():
-    host = 'baco.ipfn.tecnico.ulisboa.pt'
-    port = 8888
-    client = SDASClient(host, port)
-    return client
+client = SDASClient('baco.ipfn.tecnico.ulisboa.pt', 8888)
 
-def LoadSdasData(client, channelID, shotnr):
+def LoadSdasData(channelID, shotnr):
     dataStruct = client.getData(channelID, '0x0000', shotnr)
     dataArray = dataStruct[0].getData()
     len_d = len(dataArray)
@@ -29,8 +24,6 @@ def LoadSdasData(client, channelID, shotnr):
     return [dataArray, timeVector]
 
 # -------------------------------------------------------------------------
-
-client = StartSdas()
 
 shot = 17552
 
@@ -68,7 +61,7 @@ signals_time = []
 
 for channel in channels:
     print('channel:', channel)
-    [data, time] = LoadSdasData(client, channel, shot)
+    [data, time] = LoadSdasData(channel, shot)
     i0 = np.argmin(np.fabs(time))
     data -= np.mean(data[:i0])
     time *= 1e-6
