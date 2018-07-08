@@ -46,7 +46,7 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The shot number is indicated in the code.
     
-    - The data acquisition channels that correspond to each camera detector are also indicated in the code.
+    - The data acquisition channels that correspond to each camera detector are indicated in the code.
     
     - The signal offset is removed based on the signal average for _t_ < 0 s.
     
