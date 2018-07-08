@@ -10,18 +10,16 @@ from sdas.core.SDAStime import TimeStamp
 
 client = SDASClient('baco.ipfn.tecnico.ulisboa.pt', 8888)
 
-def LoadSdasData(channelID, shotnr):
-    dataStruct = client.getData(channelID, '0x0000', shotnr)
-    dataArray = dataStruct[0].getData()
-    len_d = len(dataArray)
-    tstart = dataStruct[0].getTStart()
-    tend = dataStruct[0].getTEnd()
-    tbs= (tend.getTimeInMicros() - tstart.getTimeInMicros())*1.0/len_d
-    events = dataStruct[0].get('events')[0]
-    tevent = TimeStamp(tstamp=events.get('tstamp'))
-    delay = tstart.getTimeInMicros() - tevent.getTimeInMicros()
-    timeVector = np.linspace(delay,delay+tbs*(len_d-1),len_d)
-    return [dataArray, timeVector]
+def get_data(shot, channel):
+    info = client.getData(channel, '0x0000', shot)
+    data = info[0].getData()
+    t0 = TimeStamp(tstamp=info[0]['events'][0]['tstamp']).getTimeInMicros()
+    t1 = info[0].getTStart().getTimeInMicros()
+    t2 = info[0].getTEnd().getTimeInMicros()
+    dt = float(t2-t1)/float(len(data))
+    time = np.arange(t1-t0, t2-t0, dt, dtype=data.dtype)*1e-6
+    assert(data.shape == time.shape)
+    return data, time
 
 # -------------------------------------------------------------------------
 
@@ -61,10 +59,9 @@ signals_time = []
 
 for channel in channels:
     print('channel:', channel)
-    [data, time] = LoadSdasData(channel, shot)
+    data, time = get_data(shot, channel)
     i0 = np.argmin(np.fabs(time))
     data -= np.mean(data[:i0])
-    time *= 1e-6
     n = 200
     data = np.cumsum(data, axis=0)
     data = (data[n:]-data[:-n])/n
