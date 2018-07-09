@@ -18,7 +18,6 @@ def get_data(shot, channel):
     t2 = info[0].getTEnd().getTimeInMicros()
     dt = float(t2-t1)/float(len(data))
     time = np.arange(t1-t0, t2-t0, dt, dtype=data.dtype)*1e-6
-    assert(data.shape == time.shape)
     return data, time
 
 # -------------------------------------------------------------------------
