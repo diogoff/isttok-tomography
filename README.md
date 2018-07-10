@@ -64,7 +64,7 @@ For a different setup, feel free to adapt this code according to the license ter
 
 - Run `reconstructions.py` to reconstruct the plasma profile at specific time points.
 
-    - The regularization is based on minimizing the horizontal and vertical differences between pixels.
+    - The regularization is based on the horizontal and vertical differences between pixels.
     
     - The regularization weight is indicated in the code.
     
