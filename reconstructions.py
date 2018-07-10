@@ -50,7 +50,7 @@ PtP = np.dot(Pt, P)
 DtDh = np.dot(np.transpose(Dh), Dh)
 DtDv = np.dot(np.transpose(Dv), Dv)
 
-alpha = 1e3
+alpha = 1e2
 
 inv = np.linalg.inv(PtP + alpha*(DtDh + DtDv))
 
