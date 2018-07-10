@@ -59,3 +59,15 @@ For a different setup, feel free to adapt this code according to the license ter
 ![signals-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-top.png)
 ![signals-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-front.png)
 ![signals-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-bottom.png)
+
+## Reconstructions
+
+- Run `reconstructions.py` to reconstruct the plasma profile at specific time points.
+
+    - The regularization is based on minimizing the horizontal and vertical differences between pixels.
+    
+    - The regularization weight is indicated in the code.
+    
+    - The time points for the reconstructions are also indicated in the code.
+    
+![reconstructions](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/reconstructions.png)
