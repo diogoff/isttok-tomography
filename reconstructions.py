@@ -2,6 +2,7 @@ from __future__ import print_function
 
 import numpy as np
 import matplotlib.pyplot as plt
+from skimage.draw import ellipse
 
 # -------------------------------------------------------------------------
 
@@ -44,15 +45,28 @@ print('Dv:', Dv.shape, Dv.dtype)
 
 # -------------------------------------------------------------------------
 
+ii, jj = ellipse(n_rows//2, n_cols//2, n_rows//2, n_cols//2)
+mask = np.ones((n_rows, n_cols))
+mask[ii,jj] = 0.
+mask = mask.flatten()
+
+I = np.eye(n_rows*n_cols) * mask
+
+print('I:', Dh.shape, Dh.dtype)
+
+# -------------------------------------------------------------------------
+
 Pt = np.transpose(P)
 PtP = np.dot(Pt, P)
 
 DtDh = np.dot(np.transpose(Dh), Dh)
 DtDv = np.dot(np.transpose(Dv), Dv)
 
-alpha = 1e2
+ItI = np.dot(np.transpose(I), I)
 
-inv = np.linalg.inv(PtP + alpha*(DtDh + DtDv))
+alpha = 1e3
+
+inv = np.linalg.inv(PtP + alpha*(DtDh + DtDv + ItI))
 
 M = np.dot(inv, Pt)
 
