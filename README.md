@@ -66,8 +66,10 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The regularization is based on the horizontal and vertical differences between pixels.
     
-    - The regularization weight is indicated in the code.
+    - The pixels outside the vessel have an additional regularization imposed on them.
+
+    - The regularization weights are indicated in the code.
     
-    - The time points for the reconstructions are also indicated in the code.
+    - The time points for the reconstructions are indicated in the code.
     
 ![reconstructions](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/reconstructions.png)
