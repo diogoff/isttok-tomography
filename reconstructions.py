@@ -51,7 +51,7 @@ mask[ii,jj] = 0.
 
 I = np.eye(n_rows*n_cols) * mask.flatten()
 
-print('I:', Dh.shape, Dh.dtype)
+print('I:', I.shape, I.dtype)
 
 # -------------------------------------------------------------------------
 
