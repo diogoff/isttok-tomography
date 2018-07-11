@@ -63,11 +63,11 @@ DtDv = np.dot(np.transpose(Dv), Dv)
 
 ItI = np.dot(np.transpose(I), I)
 
-lambda_1 = 1e3
-lambda_2 = lambda_1
-lambda_3 = 10*lambda_1
+alpha_1 = 1e3
+alpha_2 = alpha_1
+alpha_3 = 10*alpha_1
 
-inv = np.linalg.inv(PtP + lambda_1*DtDh + lambda_2*DtDv + lambda_3*ItI)
+inv = np.linalg.inv(PtP + alpha_1*DtDh + alpha_2*DtDv + alpha_3*ItI)
 
 M = np.dot(inv, Pt)
 
