@@ -65,7 +65,7 @@ ItI = np.dot(np.transpose(I), I)
 
 alpha_1 = 1e3
 alpha_2 = alpha_1
-alpha_3 = 10*alpha_1
+alpha_3 = alpha_1*10.
 
 inv = np.linalg.inv(PtP + alpha_1*DtDh + alpha_2*DtDv + alpha_3*ItI)
 
