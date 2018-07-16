@@ -49,9 +49,9 @@ ii, jj = ellipse(n_rows//2, n_cols//2, n_rows//2, n_cols//2)
 mask = np.ones((n_rows, n_cols))
 mask[ii,jj] = 0.
 
-I = np.eye(n_rows*n_cols) * mask.flatten()
+Io = np.eye(n_rows*n_cols) * mask.flatten()
 
-print('I:', I.shape, I.dtype)
+print('Io:', Io.shape, Io.dtype)
 
 # -------------------------------------------------------------------------
 
@@ -60,14 +60,13 @@ PtP = np.dot(Pt, P)
 
 DtDh = np.dot(np.transpose(Dh), Dh)
 DtDv = np.dot(np.transpose(Dv), Dv)
-
-ItI = np.dot(np.transpose(I), I)
+ItIo = np.dot(np.transpose(Io), Io)
 
 alpha_1 = 1e3
 alpha_2 = alpha_1
 alpha_3 = alpha_1*10
 
-inv = np.linalg.inv(PtP + alpha_1*DtDh + alpha_2*DtDv + alpha_3*ItI)
+inv = np.linalg.inv(PtP + alpha_1*DtDh + alpha_2*DtDv + alpha_3*ItIo)
 
 M = np.dot(inv, Pt)
 
