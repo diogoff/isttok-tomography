@@ -37,8 +37,8 @@ print('P:', P.shape, P.dtype)
 n_rows = projections.shape[1]
 n_cols = projections.shape[2]
 
-Dh = np.eye(n_rows*n_cols) - np.roll(np.eye(n_rows*n_cols), -1, axis=1)
-Dv = np.eye(n_rows*n_cols) - np.roll(np.eye(n_rows*n_cols), -n_cols, axis=1)
+Dh = np.eye(n_rows*n_cols) - np.roll(np.eye(n_rows*n_cols), 1, axis=1)
+Dv = np.eye(n_rows*n_cols) - np.roll(np.eye(n_rows*n_cols), n_cols, axis=1)
 
 print('Dh:', Dh.shape, Dh.dtype)
 print('Dv:', Dv.shape, Dv.dtype)
