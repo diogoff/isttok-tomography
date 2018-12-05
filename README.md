@@ -2,6 +2,8 @@
 
 This repository contains the source code for the tomography course at the ISTTOK training program on [Tokamak Engineering and Operation](https://isttok.tecnico.ulisboa.pt/~isttok.daemon/index.php?title=Training).
 
+The tomography course took place on Friday, July 20, 2018 and the slides can be found [here](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/slides/slides.pdf).
+
 This code is based on the 3-camera setup described in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho.
 
 ![fig3.2](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
