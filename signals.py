@@ -62,22 +62,22 @@ channels = [
     'MARTE_NODE_IVO3.DataCollection.Channel_010',  # front sensor 18
     'MARTE_NODE_IVO3.DataCollection.Channel_014',  # front sensor 19
     # Bottom camera
-    'MARTE_NODE_IVO3.DataCollection.Channel_198',  # bottom sensor 04
-    'MARTE_NODE_IVO3.DataCollection.Channel_197',  # bottom sensor 05
-    'MARTE_NODE_IVO3.DataCollection.Channel_200',  # bottom sensor 06
-    'MARTE_NODE_IVO3.DataCollection.Channel_195',  # bottom sensor 07
-    'MARTE_NODE_IVO3.DataCollection.Channel_194',  # bottom sensor 08
-    'MARTE_NODE_IVO3.DataCollection.Channel_201',  # bottom sensor 09
-    'MARTE_NODE_IVO3.DataCollection.Channel_199',  # bottom sensor 10
-    'MARTE_NODE_IVO3.DataCollection.Channel_196',  # bottom sensor 11
-    'MARTE_NODE_IVO3.DataCollection.Channel_020',  # bottom sensor 12
-    'MARTE_NODE_IVO3.DataCollection.Channel_021',  # bottom sensor 13
-    'MARTE_NODE_IVO3.DataCollection.Channel_019',  # bottom sensor 14
-    'MARTE_NODE_IVO3.DataCollection.Channel_023',  # bottom sensor 15
-    'MARTE_NODE_IVO3.DataCollection.Channel_016',  # bottom sensor 16
-    'MARTE_NODE_IVO3.DataCollection.Channel_017',  # bottom sensor 17
-    'MARTE_NODE_IVO3.DataCollection.Channel_018',  # bottom sensor 18
-    'MARTE_NODE_IVO3.DataCollection.Channel_022',  # bottom sensor 19
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_198',  # bottom sensor 04   ***UNCOMMENT TO ADD BOTTOM CAMERA***
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_197',  # bottom sensor 05
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_200',  # bottom sensor 06
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_195',  # bottom sensor 07
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_194',  # bottom sensor 08
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_201',  # bottom sensor 09
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_199',  # bottom sensor 10
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_196',  # bottom sensor 11
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_020',  # bottom sensor 12
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_021',  # bottom sensor 13
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_019',  # bottom sensor 14
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_023',  # bottom sensor 15
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_016',  # bottom sensor 16
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_017',  # bottom sensor 17
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_018',  # bottom sensor 18
+    # 'MARTE_NODE_IVO3.DataCollection.Channel_022',  # bottom sensor 19
 ]
 
 signals_data = []
@@ -107,11 +107,11 @@ for channel in channels:
         plt.title('signals (front camera)')
         plt.xlabel('t (s)')
         plt.legend()
-        plt.figure()
-    if channel == channels[47]:
-        plt.title('signals (bottom camera)')
-        plt.xlabel('t (s)')
-        plt.legend()
+        # plt.figure()                            ***UNCOMMENT TO ADD BOTTOM CAMERA***
+    # if channel == channels[47]:
+    #     plt.title('signals (bottom camera)')
+    #     plt.xlabel('t (s)')
+    #     plt.legend()
 
 plt.show()
 

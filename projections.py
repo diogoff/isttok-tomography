@@ -24,10 +24,12 @@ x_max = +100.
 y_min = -100.
 y_max = +100.
 
+
 def transform(x, y):
     j = int((x-x_min)/(x_max-x_min)*n_cols)
     i = int((y_max-y)/(y_max-y_min)*n_rows)
     return (i, j)
+
 
 # -------------------------------------------------------------------------
 
@@ -98,12 +100,12 @@ for i in range(ni):
 fig.suptitle('projections (front camera)')
 plt.show()
 
-fig, ax = plt.subplots(ni, nj, figsize=figsize)
-for i in range(ni):
-    for j in range(nj):
-        k = i*nj + j + 2*ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[32:]))
-        ax[i,j].set_axis_off()
-
-fig.suptitle('projections (bottom camera)')
-plt.show()
+# fig, ax = plt.subplots(ni, nj, figsize=figsize)       ***UNCOMMENT TO ADD BOTTOM CAMERA***
+# for i in range(ni):
+#     for j in range(nj):
+#         k = i*nj + j + 2*ni*nj
+#         ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[32:]))
+#         ax[i,j].set_axis_off()
+#
+# fig.suptitle('projections (bottom camera)')
+# plt.show()
