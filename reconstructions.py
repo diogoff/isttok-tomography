@@ -73,7 +73,7 @@ M = np.dot(inv, Pt)
 # -------------------------------------------------------------------------
 
 tomo = []
-tomo_t = np.arange(0.235, 0.294, 0.003)
+tomo_t = np.arange(0.310, 0.331, 0.001)
 
 for t in tomo_t:
     i = np.argmin(np.fabs(signals_time[0] - t))
