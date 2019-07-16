@@ -46,7 +46,7 @@ f_theta = np.pi / 2.            # Front: vertical on the LFS (facing left) 90deg
 #                                   TOP                                                  #
 ##########################################################################################
 # Pinhole frame of reference
-t_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+t_detector_x = np.linspace(1., -1., n) * step * (n - 1.) / 2.
 t_detector_y = - np.ones(n) * t_dist
 
 # Rotation and translation to the tokamak frame of reference
@@ -67,7 +67,7 @@ t_etendue = [
 #                                   FRONT                                                #
 ##########################################################################################
 # Pinhole frame of reference
-f_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+f_detector_x = np.linspace(1., -1., n) * step * (n - 1.) / 2.
 f_detector_y = - np.ones(n) * f_dist
 
 # Rotation and translation to the tokamak frame of reference
@@ -88,7 +88,7 @@ f_etendue = [
 # #                                   BOTTOM                                               #
 # ##########################################################################################
 # # Pinhole frame of reference                                                      ***UNCOMMENT TO ADD BOTTOM CAMERA***
-# b_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+# b_detector_x = np.linspace(1., -1., n) * step * (n - 1.) / 2.
 # b_detector_y = - np.ones(n) * b_dist
 #
 # # Rotation and translation to the tokamak frame of reference
