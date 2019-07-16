@@ -8,13 +8,13 @@ from shapely.geometry import Point, LineString
 # -----------------------------------------------------------------------------------------
 
 t_pinhole_x = 5.
-t_pinhole_y = 104.
+t_pinhole_y = 97.
 
-f_pinhole_x = 104.
+f_pinhole_x = 109.
 f_pinhole_y = 0.
 
-b_pinhole_x = 5.
-b_pinhole_y = -104.
+b_pinhole_x = 5. + 102 * np.cos(np.radians(-82.5))
+b_pinhole_y = 102.0 * np.sin(np.radians(-82.5))
 
 print('t_pinhole_x:', t_pinhole_x)
 print('t_pinhole_y:', t_pinhole_y)
@@ -27,19 +27,59 @@ print('b_pinhole_y:', b_pinhole_y)
 
 # -----------------------------------------------------------------------------------------
 
-n = 8           # number of detectors per camera
-size = 1.5      # detector size
-space = 10./18. # space between detectors
-dist = 10.      # distance from camera to pinhole
+n = 16              # number of detectors per camera
+size = 0.75         # detector size
+space = 0.2         # space between detectors
+step = size+space   # distance between the centers of adjacent detectors
 
-t_detector_x = t_pinhole_x - (n*size + (n-1)*space)/2. + size/2. + np.arange(n)*(size + space)
-t_detector_y = (t_pinhole_y + dist) * np.ones(n)
+t_dist = 9.     # distance from camera to pinhole
+f_dist = 9.
+b_dist = 13.
 
-f_detector_x = (f_pinhole_x + dist) * np.ones(n)
-f_detector_y = f_pinhole_y + (n*size + (n-1)*space)/2. - size/2. - np.arange(n)*(size + space)
+t_theta = np.pi                 # Top: rotated 180deg (upside down)
+f_theta = np.pi / 2.            # Front: vertical on the LFS (facing left) 90deg
+b_theta = np.pi * 7.5 / 180.    # Bottom: looking up at slight positive angle 7.5deg
 
-b_detector_x = b_pinhole_x + (n*size + (n-1)*space)/2. - size/2. - np.arange(n)*(size + space)
-b_detector_y = (b_pinhole_y - dist) * np.ones(n)
+# ----------------------------------------------------------------------------------------
+
+##########################################################################################
+#                                   TOP                                                  #
+##########################################################################################
+# Pinhole frame of reference
+t_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+t_detector_y = - np.ones(n) * t_dist
+
+# Rotation and translation to the tokamak frame of reference
+t_detector_rotated_x = t_detector_x*np.cos(t_theta) - t_detector_y*np.sin(t_theta)
+t_detector_rotated_y = t_detector_x*np.sin(t_theta) + t_detector_y*np.cos(t_theta)
+t_detector_x = t_pinhole_x + t_detector_rotated_x
+t_detector_y = t_pinhole_y + t_detector_rotated_y
+
+##########################################################################################
+#                                   FRONT                                                #
+##########################################################################################
+# Pinhole frame of reference
+f_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+f_detector_y = - np.ones(n) * f_dist
+
+# Rotation and translation to the tokamak frame of reference
+f_detector_rotated_x = f_detector_x*np.cos(f_theta) - f_detector_y*np.sin(f_theta)
+f_detector_rotated_y = f_detector_x*np.sin(f_theta) + f_detector_y*np.cos(f_theta)
+f_detector_x = f_pinhole_x + f_detector_rotated_x
+f_detector_y = f_pinhole_y + f_detector_rotated_y
+
+##########################################################################################
+#                                   BOTTOM                                               #
+##########################################################################################
+# Pinhole frame of reference
+b_detector_x = np.linspace(-1., 1., n) * step * (n - 1.) / 2.
+b_detector_y = - np.ones(n) * b_dist
+
+# Rotation and translation to the tokamak frame of reference
+b_detector_rotated_x = b_detector_x*np.cos(b_theta) - b_detector_y*np.sin(b_theta)
+b_detector_rotated_y = b_detector_x*np.sin(b_theta) + b_detector_y*np.cos(b_theta)
+b_detector_x = b_pinhole_x + b_detector_rotated_x
+b_detector_y = b_pinhole_y + b_detector_rotated_y
 
 print('t_detector_x:', t_detector_x)
 print('t_detector_y:', t_detector_y)
