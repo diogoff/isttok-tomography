@@ -55,6 +55,14 @@ t_detector_rotated_y = t_detector_x*np.sin(t_theta) + t_detector_y*np.cos(t_thet
 t_detector_x = t_pinhole_x + t_detector_rotated_x
 t_detector_y = t_pinhole_y + t_detector_rotated_y
 
+# Calibration factors
+t_etendue = [
+    0.03155177, 0.04362264, 0.05633366, 0.06869239,
+    0.09645432, 0.11267896, 0.12971384, 0.14767003,
+    0.15017711, 0.14139539, 0.12288025, 0.10543017,
+    0.08804052, 0.06193492, 0.05265601, 0.05495817,
+]
+
 ##########################################################################################
 #                                   FRONT                                                #
 ##########################################################################################
@@ -68,6 +76,14 @@ f_detector_rotated_y = f_detector_x*np.sin(f_theta) + f_detector_y*np.cos(f_thet
 f_detector_x = f_pinhole_x + f_detector_rotated_x
 f_detector_y = f_pinhole_y + f_detector_rotated_y
 
+# Calibration factors
+f_etendue = [
+    0.00210049, 0.00611418, 0.01208648, 0.01871730,
+    0.02721384, 0.03679548, 0.04456807, 0.05030524,
+    0.05118717, 0.04779802, 0.04111613, 0.03216692,
+    0.02290661, 0.01593762, 0.01080871, 0.00883411,
+]
+
 ##########################################################################################
 #                                   BOTTOM                                               #
 ##########################################################################################
@@ -80,6 +96,14 @@ b_detector_rotated_x = b_detector_x*np.cos(b_theta) - b_detector_y*np.sin(b_thet
 b_detector_rotated_y = b_detector_x*np.sin(b_theta) + b_detector_y*np.cos(b_theta)
 b_detector_x = b_pinhole_x + b_detector_rotated_x
 b_detector_y = b_pinhole_y + b_detector_rotated_y
+
+# Calibration factors
+b_etendue = [
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0,
+]
 
 print('t_detector_x:', t_detector_x)
 print('t_detector_y:', t_detector_y)
@@ -108,8 +132,8 @@ for i in range(n):
     segment = line.difference(circle)[1]
     x0, y0 = segment.coords[0]
     x1, y1 = segment.coords[1]
-    print('%10s %10.6f %10.6f %10.6f %10.6f' % ('top', x0, y0, x1, y1))
-    coords.append(['top', x0, y0, x1, y1])
+    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % ('top', x0, y0, x1, y1, t_etendue[i]))
+    coords.append(['top', x0, y0, x1, y1, t_etendue[i]])
 
 for i in range(n):
     x0 = f_detector_x[i]
@@ -125,8 +149,8 @@ for i in range(n):
     segment = line.difference(circle)[1]
     x0, y0 = segment.coords[0]
     x1, y1 = segment.coords[1]
-    print('%10s %10.6f %10.6f %10.6f %10.6f' % ('front', x0, y0, x1, y1))
-    coords.append(['front', x0, y0, x1, y1])
+    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % ('front', x0, y0, x1, y1, f_etendue[i]))
+    coords.append(['front', x0, y0, x1, y1, f_etendue[i]])
 
 for i in range(n):
     x0 = b_detector_x[i]
@@ -142,12 +166,12 @@ for i in range(n):
     segment = line.difference(circle)[1]
     x0, y0 = segment.coords[0]
     x1, y1 = segment.coords[1]
-    print('%10s %10.6f %10.6f %10.6f %10.6f' % ('bottom', x0, y0, x1, y1))
-    coords.append(['bottom', x0, y0, x1, y1])
+    print('%10s %10.6f %10.6f %10.6f %10.6f % 10.6f' % ('bottom', x0, y0, x1, y1, b_etendue[i]))
+    coords.append(['bottom', x0, y0, x1, y1, b_etendue[i]])
 
 # -----------------------------------------------------------------------------------------
 
-df = pd.DataFrame(coords, columns=['camera', 'x0', 'y0', 'x1', 'y1'])
+df = pd.DataFrame(coords, columns=['camera', 'x0', 'y0', 'x1', 'y1', 'etendue'])
 
 fname = 'cameras.csv'
 print('Writing:', fname)

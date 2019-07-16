@@ -57,7 +57,7 @@ for row in df.itertuples():
         y_mean = np.mean(yy)
         (i, j) = transform(x_mean, y_mean)
         projection[i,j] = segment.length
-    projections.append(projection)
+    projections.append(projection * row.etendue)
     
 projections = np.array(projections)
 
@@ -74,7 +74,7 @@ np.save(fname, projections)
 vmin = 0.
 vmax = np.sqrt(((x_max-x_min)/n_cols)**2 + ((y_max-y_min)/n_rows)**2)
 
-ni = 2
+ni = 4
 nj = 4
 figsize = (2*nj, 2*ni)
 
@@ -82,7 +82,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[:16]))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (top camera)')
@@ -92,7 +92,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[16:32]))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (front camera)')
@@ -102,7 +102,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + 2*ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[32:]))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (bottom camera)')
