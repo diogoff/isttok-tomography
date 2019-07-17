@@ -4,7 +4,7 @@ This repository contains the source code for the tomography course at the ISTTOK
 
 The tomography course takes place on Friday, July 26, 2019.
 
-The code is based on a 2-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the right-hand side of the tokamak section showed bellow. 
+The code is based on a 2-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the right-hand side of the tokamak section showed bellow.
 
 <img src="https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/port8.PNG" width="50%" alt="port8">
 
@@ -49,7 +49,7 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The code uses the SDAS API that can be downloaded and installed from [here](http://metis.ipfn.ist.utl.pt/CODAC/IPFN_Software/SDAS/Access/Python).
     
-    - The shot number is indicated in the code.
+    - The shot number is indicated in the code. **The present code works only for shot numbers >= 47218**
     
     - The data acquisition channels that correspond to each camera detector are indicated in the code.
     
