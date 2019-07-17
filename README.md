@@ -2,11 +2,13 @@
 
 This repository contains the source code for the tomography course at the ISTTOK training program on [Tokamak Engineering and Operation](https://isttok.tecnico.ulisboa.pt/~isttok.daemon/index.php?title=Training).
 
-The tomography course took place on Friday, July 20, 2018 and the slides can be found [here](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/slides/slides.pdf).
+The tomography course takes place on Friday, July 26, 2019.
 
-The code is based on the 3-camera setup described in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho.
+The code is based on the 3-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). 
 
 ![fig3.2](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
+
+For a detailed description of tomography methods (in english) refer to the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous iteration of the tomography diagnostic at ISTTOK.
 
 For a different setup, feel free to adapt this code according to the license terms.
 
@@ -20,7 +22,7 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The vessel has a circular cross section that is assumed to be centered at (0,0) in the xy-plane.
     
-    - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
+    - An output file `cameras.csv` will be created with the start and end positions for each line of sight, as well as the corresponding geometric étendue. 
     
 ![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
 
@@ -33,6 +35,8 @@ For a different setup, feel free to adapt this code according to the license ter
     - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length of the intersection between the line and the pixel.
     
     - When a line of sight does not cross a pixel, the contribution of that pixel is zero, since there is no intersection.
+    
+    - Each line of sight is weighted according to it's étendue, which is experimentally known.
 
     - The projections will be saved to the output file `projections.npy`.
 
@@ -52,7 +56,7 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The signal offset is removed based on the signal average for _t_ < 0 s.
     
-    - The signals are subsampled from 2 MHz to 10 kHz.
+    - The signals are subsampled from 10 kHz to 1 kHz.
     
     - The signals are clipped to zero to remove any negative values.
     
