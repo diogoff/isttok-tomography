@@ -4,9 +4,9 @@ This repository contains the source code for the tomography course at the ISTTOK
 
 The tomography course takes place on Friday, July 26, 2019.
 
-The code is based on the 3-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). 
+The code is based on a 2-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the right-hand side of the tokamak section showed bellow. 
 
-![fig3.2](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
+<img src="https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/port8.PNG" width="50%" alt="port8">
 
 For a detailed description of tomography methods (in english) refer to the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous iteration of the tomography diagnostic at ISTTOK.
 
@@ -16,7 +16,7 @@ For a different setup, feel free to adapt this code according to the license ter
 
 - Run `cameras.py` to find the lines of sight for each camera.
 
-    - The three cameras are referred to as top (t), front (f) and bottom (b).
+    - The two cameras are referred to as top (t) and front (f).
 
     - The pinhole and detector positions are provided in the code.
     
@@ -24,7 +24,7 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight, as well as the corresponding geometric étendue. 
     
-![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
+![cameras](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/cameras.png)
 
 ## Projections
 
@@ -40,9 +40,8 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The projections will be saved to the output file `projections.npy`.
 
-![projections-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-top.png)
-![projections-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-front.png)
-![projections-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-bottom.png)
+![projections-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-top.png)
+![projections-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-front.png)
 
 ## Signals
 
@@ -62,9 +61,8 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The signals data and time are stored separately in `signals_data.npy` and `signals_time.npy`.
     
-![signals-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-top.png)
-![signals-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-front.png)
-![signals-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-bottom.png)
+![signals-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-top.png)
+![signals-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-front.png)
 
 ## Reconstructions
 
@@ -78,4 +76,4 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The time points for the reconstructions are indicated in the code.
     
-![reconstructions](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/reconstructions.png)
+![reconstructions](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/reconstructions.png)
