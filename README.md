@@ -66,9 +66,9 @@ For different setups, feel free to adapt this code according to the license term
 
 ## Reconstructions
 
-- Run `reconstructions.py` to reconstruct the plasma profile at specific time points.
+- Run `reconstructions.py` to reconstruct the plasma profile at specific points in time.
 
-    - The regularization is based on the horizontal and vertical differences between pixels.
+    - The regularization is based on the differences between adjacent pixels.
     
     - The pixels outside the vessel have an additional regularization imposed on them.
 
@@ -76,4 +76,4 @@ For different setups, feel free to adapt this code according to the license term
     
     - The time points for the reconstructions are indicated in the code.
     
-![reconstructions](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/reconstructions.png)
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/reconstructions.png" width="50%"></p>
