@@ -8,9 +8,9 @@ The code is based on a two-camera setup described in the [MSc thesis](https://fe
 
 <p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/ports.png" width="50%" alt="images/ports.png"></p>
 
-A more detailed discussion of tomography methods can be found in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes a previous setup of the tomography diagnostic at ISTTOK.
+A more detailed discussion of tomography methods can be found in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous setup of the tomography diagnostic at ISTTOK.
 
-For a different setup, feel free to adapt this code according to the license terms.
+For different setups, feel free to adapt this code according to the license terms.
 
 ## Cameras
 
