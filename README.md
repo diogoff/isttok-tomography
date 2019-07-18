@@ -2,11 +2,13 @@
 
 This repository contains the source code for the tomography course at the ISTTOK training program on [Tokamak Engineering and Operation](https://isttok.tecnico.ulisboa.pt/~isttok.daemon/index.php?title=Training).
 
-The tomography course took place on Friday, July 20, 2018 and the slides can be found [here](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/slides/slides.pdf).
+The tomography course takes place on Friday, July 26, 2019.
 
-The code is based on the 3-camera setup described in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho.
+The code is based on a 2-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the right-hand side of the tokamak section showed bellow.
 
-![fig3.2](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/fig3.2.png)
+<img src="https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/port8.PNG" width="50%" alt="port8">
+
+For a detailed description of tomography methods (in english) refer to the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous iteration of the tomography diagnostic at ISTTOK.
 
 For a different setup, feel free to adapt this code according to the license terms.
 
@@ -14,15 +16,15 @@ For a different setup, feel free to adapt this code according to the license ter
 
 - Run `cameras.py` to find the lines of sight for each camera.
 
-    - The three cameras are referred to as top (t), front (f) and bottom (b).
+    - The two cameras are referred to as top (t) and front (f).
 
     - The pinhole and detector positions are provided in the code.
     
     - The vessel has a circular cross section that is assumed to be centered at (0,0) in the xy-plane.
     
-    - An output file `cameras.csv` will be created with the start and end positions for each line of sight.
+    - An output file `cameras.csv` will be created with the start and end positions for each line of sight, as well as the corresponding geometric étendue. 
     
-![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
+![cameras](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/cameras.png)
 
 ## Projections
 
@@ -33,12 +35,13 @@ For a different setup, feel free to adapt this code according to the license ter
     - When a line of sight crosses a pixel, the contribution of that pixel is assumed to be proportionate to the length of the intersection between the line and the pixel.
     
     - When a line of sight does not cross a pixel, the contribution of that pixel is zero, since there is no intersection.
+    
+    - Each line of sight is weighted according to it's étendue, which is experimentally known.
 
     - The projections will be saved to the output file `projections.npy`.
 
-![projections-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-top.png)
-![projections-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-front.png)
-![projections-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-bottom.png)
+![projections-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-top.png)
+![projections-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-front.png)
 
 ## Signals
 
@@ -46,21 +49,20 @@ For a different setup, feel free to adapt this code according to the license ter
 
     - The code uses the SDAS API that can be downloaded and installed from [here](http://metis.ipfn.ist.utl.pt/CODAC/IPFN_Software/SDAS/Access/Python).
     
-    - The shot number is indicated in the code.
+    - The shot number is indicated in the code. **The present code works only for 47216 <= shot numbers <= 47262**
     
     - The data acquisition channels that correspond to each camera detector are indicated in the code.
     
     - The signal offset is removed based on the signal average for _t_ < 0 s.
     
-    - The signals are subsampled from 2 MHz to 10 kHz.
+    - The signals are subsampled from 10 kHz to 1 kHz.
     
     - The signals are clipped to zero to remove any negative values.
     
     - The signals data and time are stored separately in `signals_data.npy` and `signals_time.npy`.
     
-![signals-top](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-top.png)
-![signals-front](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-front.png)
-![signals-bottom](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-bottom.png)
+![signals-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-top.png)
+![signals-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-front.png)
 
 ## Reconstructions
 
@@ -74,4 +76,4 @@ For a different setup, feel free to adapt this code according to the license ter
     
     - The time points for the reconstructions are indicated in the code.
     
-![reconstructions](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/reconstructions.png)
+![reconstructions](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/reconstructions.png)

@@ -62,7 +62,7 @@ DtDh = np.dot(np.transpose(Dh), Dh)
 DtDv = np.dot(np.transpose(Dv), Dv)
 ItIo = np.dot(np.transpose(Io), Io)
 
-alpha_1 = 1e3
+alpha_1 = 5e2
 alpha_2 = alpha_1
 alpha_3 = alpha_1*10
 
@@ -73,7 +73,7 @@ M = np.dot(inv, Pt)
 # -------------------------------------------------------------------------
 
 tomo = []
-tomo_t = np.arange(0., signals_time[0,-1], 0.005)
+tomo_t = np.arange(0.310, 0.331, 0.001)
 
 for t in tomo_t:
     i = np.argmin(np.fabs(signals_time[0] - t))
@@ -92,7 +92,7 @@ vmin = 0.
 vmax = np.max(tomo)
 
 ni = 4
-nj = tomo.shape[0]/ni
+nj = tomo.shape[0]//ni
 fig, ax = plt.subplots(ni, nj, figsize=(2*nj, 2*ni))
 
 for i in range(ni):

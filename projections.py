@@ -15,8 +15,8 @@ print(df)
 
 # -----------------------------------------------------------------------------------------
 
-n_rows = 15  # y-axis pixel resolution
-n_cols = 15  # x-axis pixel resolution
+n_rows = 30  # y-axis pixel resolution
+n_cols = 30  # x-axis pixel resolution
 
 x_min = -100.
 x_max = +100.
@@ -24,10 +24,12 @@ x_max = +100.
 y_min = -100.
 y_max = +100.
 
+
 def transform(x, y):
     j = int((x-x_min)/(x_max-x_min)*n_cols)
     i = int((y_max-y)/(y_max-y_min)*n_rows)
     return (i, j)
+
 
 # -------------------------------------------------------------------------
 
@@ -57,7 +59,7 @@ for row in df.itertuples():
         y_mean = np.mean(yy)
         (i, j) = transform(x_mean, y_mean)
         projection[i,j] = segment.length
-    projections.append(projection)
+    projections.append(projection * row.etendue)
     
 projections = np.array(projections)
 
@@ -74,7 +76,7 @@ np.save(fname, projections)
 vmin = 0.
 vmax = np.sqrt(((x_max-x_min)/n_cols)**2 + ((y_max-y_min)/n_rows)**2)
 
-ni = 2
+ni = 4
 nj = 4
 figsize = (2*nj, 2*ni)
 
@@ -82,7 +84,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (top camera)')
@@ -92,18 +94,18 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (front camera)')
 plt.show()
 
-fig, ax = plt.subplots(ni, nj, figsize=figsize)
-for i in range(ni):
-    for j in range(nj):
-        k = i*nj + j + 2*ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
-        ax[i,j].set_axis_off()
-
-fig.suptitle('projections (bottom camera)')
-plt.show()
+# fig, ax = plt.subplots(ni, nj, figsize=figsize)       ***UNCOMMENT TO ADD BOTTOM CAMERA***
+# for i in range(ni):
+#     for j in range(nj):
+#         k = i*nj + j + 2*ni*nj
+#         ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[32:]))
+#         ax[i,j].set_axis_off()
+#
+# fig.suptitle('projections (bottom camera)')
+# plt.show()
