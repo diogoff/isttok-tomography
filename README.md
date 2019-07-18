@@ -16,15 +16,15 @@ For different setups, feel free to adapt this code according to the license term
 
 - Run `cameras.py` to find the lines of sight for each camera.
 
-    - The two cameras are referred to as top (t) and front (f).
+    - The two cameras are referred to as vertical (v) and horizontal (h).
 
-    - The pinhole and detector positions are provided in the code.
+    - The pinhole and detector positions are provided in the code, together with étendue values obtained by calibration.
     
     - The vessel has a circular cross section that is assumed to be centered at (0,0) in the xy-plane.
     
-    - An output file `cameras.csv` will be created with the start and end positions for each line of sight, as well as the corresponding geometric étendue. 
+    - An output file `cameras.csv` will be created with the start and end positions for each line of sight, together with the corresponding étendue. 
     
-![cameras](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/cameras.png)
+![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
 
 ## Projections
 
