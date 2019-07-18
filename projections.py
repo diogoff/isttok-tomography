@@ -15,8 +15,8 @@ print(df)
 
 # -----------------------------------------------------------------------------------------
 
-n_rows = 30  # y-axis pixel resolution
-n_cols = 30  # x-axis pixel resolution
+n_rows = 15   # y-axis pixel resolution
+n_cols = 15   # x-axis pixel resolution
 
 x_min = -100.
 x_max = +100.
@@ -29,7 +29,6 @@ def transform(x, y):
     j = int((x-x_min)/(x_max-x_min)*n_cols)
     i = int((y_max-y)/(y_max-y_min)*n_rows)
     return (i, j)
-
 
 # -------------------------------------------------------------------------
 
@@ -74,7 +73,7 @@ np.save(fname, projections)
 # -------------------------------------------------------------------------
 
 vmin = 0.
-vmax = np.sqrt(((x_max-x_min)/n_cols)**2 + ((y_max-y_min)/n_rows)**2)
+vmax = np.max([projections[k] for k in df[df['camera']=='vertical'].index])
 
 ni = 4
 nj = 4
@@ -84,28 +83,23 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_axis_off()
 
-fig.suptitle('projections (top camera)')
+fig.suptitle('projections (vertical camera)')
 plt.show()
+
+# -------------------------------------------------------------------------
+
+vmin = 0.
+vmax = np.max([projections[k] for k in df[df['camera']=='horizontal'].index])
 
 fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_axis_off()
 
-fig.suptitle('projections (front camera)')
+fig.suptitle('projections (horizontal camera)')
 plt.show()
-
-# fig, ax = plt.subplots(ni, nj, figsize=figsize)       ***UNCOMMENT TO ADD BOTTOM CAMERA***
-# for i in range(ni):
-#     for j in range(nj):
-#         k = i*nj + j + 2*ni*nj
-#         ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[32:]))
-#         ax[i,j].set_axis_off()
-#
-# fig.suptitle('projections (bottom camera)')
-# plt.show()

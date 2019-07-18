@@ -36,12 +36,12 @@ For different setups, feel free to adapt this code according to the license term
     
     - When a line of sight does not cross a pixel, the contribution of that pixel is zero, since there is no intersection.
     
-    - Each line of sight is weighted according to it's étendue, which is experimentally known.
+    - Each line of sight is weighted according to the corresponding étendue, which was obtained experimentally.
 
     - The projections will be saved to the output file `projections.npy`.
 
-![projections-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-top.png)
-![projections-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/projections-front.png)
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-vertical.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-horizontal.png"></p>
 
 ## Signals
 

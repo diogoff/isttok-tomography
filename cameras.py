@@ -96,8 +96,9 @@ for i in range(n):
     segment = line.difference(circle)[1]
     x0, y0 = segment.coords[0]
     x1, y1 = segment.coords[1]
-    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % ('top', x0, y0, x1, y1, v_etendue[i]))
-    coords.append(['top', x0, y0, x1, y1, v_etendue[i]])
+    camera = 'vertical'
+    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % (camera, x0, y0, x1, y1, v_etendue[i]))
+    coords.append([camera, x0, y0, x1, y1, v_etendue[i]])
 
 for i in range(n):
     x0 = h_detector_x[i]
@@ -113,8 +114,9 @@ for i in range(n):
     segment = line.difference(circle)[1]
     x0, y0 = segment.coords[0]
     x1, y1 = segment.coords[1]
-    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % ('front', x0, y0, x1, y1, h_etendue[i]))
-    coords.append(['front', x0, y0, x1, y1, h_etendue[i]])
+    camera = 'horizontal'
+    print('%10s %10.6f %10.6f %10.6f %10.6f %10.6f' % (camera, x0, y0, x1, y1, h_etendue[i]))
+    coords.append([camera, x0, y0, x1, y1, h_etendue[i]])
 
 # -----------------------------------------------------------------------------------------
 
