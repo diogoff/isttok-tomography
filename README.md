@@ -24,7 +24,7 @@ For different setups, feel free to adapt this code according to the license term
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight, together with the corresponding étendue. 
     
-<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png" width="50%"></p>
 
 ## Projections
 
@@ -40,8 +40,8 @@ For different setups, feel free to adapt this code according to the license term
 
     - The projections will be saved to the output file `projections.npy`.
 
-<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-vertical.png"></p>
-<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-horizontal.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-vertical.png" width="50%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/projections-horizontal.png" width="50%"></p>
 
 ## Signals
 
