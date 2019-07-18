@@ -1,10 +1,10 @@
 # ISTTOK Tokamak Engineering and Operation
 
-This repository contains the source code for the tomography course at the ISTTOK training program on [Tokamak Engineering and Operation](https://isttok.tecnico.ulisboa.pt/~isttok.daemon/index.php?title=Training).
+This repository contains the source code for the tomography session at the ISTTOK training program on [Tokamak Engineering and Operation](https://isttok.tecnico.ulisboa.pt/~isttok.daemon/index.php?title=Training).
 
-The tomography course takes place on Friday, July 26, 2019.
+The tomography session takes place on Friday, July 26, 2019 at 9:30 in room C13.
 
-The code is based on a 2-camera setup available at ISTTOK described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the right-hand side of the tokamak section showed bellow.
+The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the low-field side of the vessel, as shown in the figure below. (A third camera placed on the bottom is currently not working.)
 
 <img src="https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/port8.PNG" width="50%" alt="port8">
 
