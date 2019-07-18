@@ -4,11 +4,11 @@ This repository contains the source code for the tomography session at the ISTTO
 
 The tomography session takes place on Friday, July 26, 2019 at 9:30 in room C13.
 
-The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the low-field side of the vessel, as shown in the figure below. (A third camera placed on the bottom is currently not working.)
+The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the low-field side of the vessel, as shown in the figure below. (There is a third camera placed on the bottom but it is currently not working.)
 
 <p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/ports.png" width="50%" alt="images/ports.png"></p>
 
-For a detailed description of tomography methods (in english) refer to the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous iteration of the tomography diagnostic at ISTTOK.
+A detailed discussion of tomography methods can be found in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes a previous setup of the tomography diagnostic at ISTTOK.
 
 For a different setup, feel free to adapt this code according to the license terms.
 
