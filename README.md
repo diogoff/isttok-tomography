@@ -4,7 +4,7 @@ This repository contains the source code for the tomography session at the ISTTO
 
 The tomography session takes place on Friday, July 26, 2019 at 9:30 in room C13.
 
-The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the low-field side of the vessel, as shown in the figure below. (There is a third camera placed on the bottom but it is currently not working.)
+The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The vertical camera is on the top and the horizontal camera is on the low-field side of the vessel, as shown in the figure below. (A third camera placed on the bottom is currently not operational.)
 
 <p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/ports.png" width="50%"></p>
 
@@ -61,8 +61,8 @@ For different setups, feel free to adapt this code according to the license term
     
     - The signals data and time are stored separately in `signals_data.npy` and `signals_time.npy`.
     
-![signals-top](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-top.png)
-![signals-front](https://raw.githubusercontent.com/Europium-152/isttok-tomography-2019/master/images/signals-front.png)
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-vertical.png" width="50%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/signals-horizontal.png" width="50%"></p>
 
 ## Reconstructions
 
