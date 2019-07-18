@@ -15,8 +15,8 @@ print(df)
 
 # -----------------------------------------------------------------------------------------
 
-n_rows = 15  # y-axis pixel resolution
-n_cols = 15  # x-axis pixel resolution
+n_rows = 30  # y-axis pixel resolution
+n_cols = 30  # x-axis pixel resolution
 
 x_min = -100.
 x_max = +100.
@@ -84,7 +84,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[:16]))
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (top camera)')
@@ -94,7 +94,7 @@ fig, ax = plt.subplots(ni, nj, figsize=figsize)
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j + ni*nj
-        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections[16:32]))
+        ax[i,j].imshow(projections[k], vmin=vmin, vmax=np.max(projections))
         ax[i,j].set_axis_off()
 
 fig.suptitle('projections (front camera)')
