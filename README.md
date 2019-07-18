@@ -49,7 +49,7 @@ For different setups, feel free to adapt this code according to the license term
 
     - The code uses the SDAS API that can be downloaded and installed from [here](http://metis.ipfn.ist.utl.pt/CODAC/IPFN_Software/SDAS/Access/Python).
     
-    - The shot number is indicated in the code. **The present code works only for 47216 <= shot numbers <= 47262**
+    - The shot number is indicated in the code. (The present setup is valid for shot numbers between 47216 and 47262.)
     
     - The data acquisition channels that correspond to each camera detector are indicated in the code.
     
