@@ -6,7 +6,7 @@ The tomography session takes place on Friday, July 26, 2019 at 9:30 in room C13.
 
 The code is based on a two-camera setup described in the [MSc thesis](https://fenix.tecnico.ulisboa.pt/downloadFile/563345090414094/Dissertacao.pdf) of F. L. Burnay (in portuguese). The cameras are placed on the top and on the low-field side of the vessel, as shown in the figure below. (There is a third camera placed on the bottom but it is currently not working.)
 
-<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/ports.png" width="50%" alt="images/ports.png"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/ports.png" width="50%"></p>
 
 A more detailed discussion of tomography methods can be found in the [PhD thesis](http://bibliotecas.utl.pt/cgi-bin/koha/opac-detail.pl?biblionumber=428085) of P. J. Carvalho, which also describes the previous setup of the tomography diagnostic at ISTTOK.
 
@@ -24,7 +24,7 @@ For different setups, feel free to adapt this code according to the license term
     
     - An output file `cameras.csv` will be created with the start and end positions for each line of sight, together with the corresponding étendue. 
     
-![cameras](https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png)
+<p align="center"><img src="https://raw.githubusercontent.com/diogoff/isttok-tomography/master/images/cameras.png"></p>
 
 ## Projections
 
