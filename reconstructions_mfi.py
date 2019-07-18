@@ -137,7 +137,7 @@ for t in tomo_t:
             tomo.append(g.reshape((n_rows, n_cols)))
             break
 
-        elif (i + 1) == mfi_max_iterations:  # If maximum iterations has been reached break just before the `for loop` does
+        elif (i + 1) == mfi_max_iterations:
             print("WARNING: Minimum Fisher did not converge after %d iterations." % (i + 1))
             tomo.append(g.reshape((n_rows, n_cols)))
             break
@@ -158,13 +158,14 @@ vmax = np.max(tomo)
 
 ni = 4
 nj = tomo.shape[0]//ni
-fig, ax = plt.subplots(ni, nj, figsize=(2*nj, 2*ni))
+fig, ax = plt.subplots(ni, nj, figsize=(2*nj, 2*ni), sharex=True, sharey=True)
 
 for i in range(ni):
     for j in range(nj):
         k = i*nj + j
-        ax[i,j].imshow(tomo[k], vmin=vmin, vmax=vmax)
+        # ax[i,j].imshow(tomo[k], vmin=vmin, vmax=vmax)
+        ax[i,j].pcolormesh(x_array_plot, y_array_plot, tomo[k], vmin=vmin, vmax=vmax)
         ax[i,j].set_title('t=%.3fs' % tomo_t[k])
-        ax[i,j].set_axis_off()
+        # ax[i,j].set_axis_off()
 
 plt.show()
