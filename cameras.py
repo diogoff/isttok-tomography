@@ -7,20 +7,6 @@ from shapely.geometry import Point, LineString
 
 # -----------------------------------------------------------------------------------------
 
-v_pinhole_x = 5.
-v_pinhole_y = 97.
-
-h_pinhole_x = 109.
-h_pinhole_y = 0.
-
-print('v_pinhole_x:', v_pinhole_x)
-print('v_pinhole_y:', v_pinhole_y)
-
-print('h_pinhole_x:', h_pinhole_x)
-print('h_pinhole_y:', h_pinhole_y)
-
-# -----------------------------------------------------------------------------------------
-
 n = 16               # number of detectors per camera
 size = 0.75          # detector size
 space = 0.2          # space between detectors
@@ -29,54 +15,47 @@ step = size + space  # distance between the centers of adjacent detectors
 v_dist = 9.          # distance from camera to pinhole
 h_dist = 9.
 
-v_theta = np.pi      # vertical camera: rotated 180 degrees from bottom
-h_theta = np.pi / 2. # horizontal camera: rotated 90 degrees from bottom
-
 # ----------------------------------------------------------------------------------------
 
-# pinhole frame of reference
-v_detector_x = np.linspace(1., -1., n) * step * (n-1.)/2.
-v_detector_y = (-1.) * np.ones(n) * v_dist
+v_pinhole_x = 5.
+v_pinhole_y = 97.
 
-# rotation
-v_detector_rotated_x = v_detector_x*np.cos(v_theta) - v_detector_y*np.sin(v_theta)
-v_detector_rotated_y = v_detector_x*np.sin(v_theta) + v_detector_y*np.cos(v_theta)
+print('v_pinhole_x:', v_pinhole_x)
+print('v_pinhole_y:', v_pinhole_y)
 
-# translation to the vessel frame of reference
-v_detector_x = v_pinhole_x + v_detector_rotated_x
-v_detector_y = v_pinhole_y + v_detector_rotated_y
+v_detector_x = v_pinhole_x + np.linspace(-1., 1., n) * (n-1.) * step / 2.
+v_detector_y = v_pinhole_y + np.ones(n) * v_dist
 
-# calibration factors (etendue)
+print('v_detector_x:', v_detector_x)
+print('v_detector_y:', v_detector_y)
+
 v_etendue = [0.03155177, 0.04362264, 0.05633366, 0.06869239,
              0.09645432, 0.11267896, 0.12971384, 0.14767003,
              0.15017711, 0.14139539, 0.12288025, 0.10543017,
              0.08804052, 0.06193492, 0.05265601, 0.05495817]
 
-print('v_detector_x:', v_detector_x)
-print('v_detector_y:', v_detector_y)
+print('v_etendue:', v_etendue)
 
 # ----------------------------------------------------------------------------------------
 
-# pinhole frame of reference
-h_detector_x = np.linspace(1., -1., n) * step * (n-1.)/2.
-h_detector_y = (-1.) * np.ones(n) * h_dist
+h_pinhole_x = 109.
+h_pinhole_y = 0.
 
-# rotation
-h_detector_rotated_x = h_detector_x*np.cos(h_theta) - h_detector_y*np.sin(h_theta)
-h_detector_rotated_y = h_detector_x*np.sin(h_theta) + h_detector_y*np.cos(h_theta)
+print('h_pinhole_x:', h_pinhole_x)
+print('h_pinhole_y:', h_pinhole_y)
 
-# translation to the vessel frame of reference
-h_detector_x = h_pinhole_x + h_detector_rotated_x
-h_detector_y = h_pinhole_y + h_detector_rotated_y
+h_detector_x = h_pinhole_x + np.ones(n) * h_dist
+h_detector_y = h_pinhole_y + np.linspace(1., -1., n) * (n-1.) * step / 2.
 
-# calibration factors (etendue)
+print('h_detector_x:', h_detector_x)
+print('h_detector_y:', h_detector_y)
+
 h_etendue = [0.00210049, 0.00611418, 0.01208648, 0.01871730,
              0.02721384, 0.03679548, 0.04456807, 0.05030524,
              0.05118717, 0.04779802, 0.04111613, 0.03216692,
              0.02290661, 0.01593762, 0.01080871, 0.00883411]
 
-print('h_detector_x:', h_detector_x)
-print('h_detector_y:', h_detector_y)
+print('h_etendue:', h_etendue)
 
 # -----------------------------------------------------------------------------------------
 
